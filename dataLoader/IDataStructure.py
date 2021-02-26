@@ -1,4 +1,3 @@
-
 class linkDisplacementData:
 
     def __init__(self, attributeCode, coordinates):
@@ -13,6 +12,7 @@ class RpaEntityData(linkDisplacementData):
         self.location = info["location"]
         if hasattr(info, 'newLocation'):
             self.newLocation = info["newLocation"]
+        self.category = info["category"]
         self.width = info["width"]
         self.outLinksCnt = info["outLinksCnt"]
         self.inLinksCnt = info["inLinksCnt"]
@@ -21,7 +21,6 @@ class RpaEntityData(linkDisplacementData):
         self.linkDisplacement = []
         for i in info["linkDisplacement"]:
             self.linkDisplacement.append(linkDisplacementData(i["attributeCode"], i["coordinates"]))
-
 
 
 class IRpaData(RpaEntityData):
