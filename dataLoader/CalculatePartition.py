@@ -1,4 +1,4 @@
-
+from dataLoader import constants
 
 def getPartitionPercentage(canvasDataArray):
 
@@ -22,9 +22,10 @@ def getPartitionPercentage(canvasDataArray):
 
     sum = categoryA + categoryB + categoryC
 
-    pixelA = (categoryA/sum) * 1080
-    pixelB = (categoryB/sum) * 1080
-    pixelC = (categoryC/sum) * 1080
+
+    pixelA = (categoryA/sum) * constants.screenWidth
+    pixelB = (categoryB/sum) * constants.screenWidth
+    pixelC = (categoryC/sum) * constants.screenWidth
 
     if maxWidth > pixelA:
         pixelA = maxWidth + 20
