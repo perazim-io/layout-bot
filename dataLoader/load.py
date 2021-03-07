@@ -18,7 +18,8 @@ def getData():
     for document in payload:
         dataObject = IRpaData(
             document["entityCode"],
-            document["info"]
+            document["info"],
+            document["linkInfo"]
         )
         canvasDataArray.append(dataObject)
 

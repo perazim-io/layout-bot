@@ -1,12 +1,16 @@
 class linkDisplacementData:
-
     def __init__(self, attributeCode, coordinates):
         self.attributeCode = attributeCode
         self.coordinates = coordinates
 
 
-class RpaEntityData(linkDisplacementData):
+class linkData:
+    def __init__(self, startPoint, destination):
+        self.startPoint = startPoint
+        self.destination = destination
 
+
+class RpaEntityData(linkDisplacementData):
     def __init__(self, info):
         self.height = info["height"]
         self.location = info["location"]
@@ -23,8 +27,10 @@ class RpaEntityData(linkDisplacementData):
             self.linkDisplacement.append(linkDisplacementData(i["attributeCode"], i["coordinates"]))
 
 
-class IRpaData(RpaEntityData):
-
-    def __init__(self, entityCode, info):
+class IRpaData(RpaEntityData, linkData):
+    def __init__(self, entityCode, info, linkInfo):
         self.entityCode = entityCode
         self.info = RpaEntityData(info)
+        self.linkInfo = []
+        for i in linkInfo:
+            self.linkInfo.append(linkData(i["from"], i["to"]))

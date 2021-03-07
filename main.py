@@ -2,11 +2,17 @@
 
 from dataLoader.load import *
 from dataLoader.CalculatePartition import *
+from scoringFunction.ScoringFunction import *
 
 canvasDataArray = getData()
-partitionPercentage = getPartitionPercentage(canvasDataArray)
+partitionPixels = getPartitionPercentage(canvasDataArray)
 
-print(partitionPercentage)
+# print(partitionPixels)
 
 for i in canvasDataArray:
-    print(i.info.category)
+    for j in i.linkInfo:
+        print(j.destination)
+
+score = getScore()
+print(score)
+
