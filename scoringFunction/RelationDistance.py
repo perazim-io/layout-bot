@@ -1,4 +1,3 @@
-from dataLoader.IDataStructure import IRpaData
 from scipy.spatial import distance
 
 
@@ -16,7 +15,7 @@ def getRelationDistance(canvasDataArray):
             p1 = attributeLocation[a1]
             p2 = attributeLocation[a2]
             d = distance.euclidean(p1, p2)
-            # print(a1, a2, d)
+            print(a1, a2, d)
 
     return 0
 

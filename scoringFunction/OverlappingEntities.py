@@ -1,4 +1,3 @@
-from dataLoader.IDataStructure import IRpaData
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
@@ -17,8 +16,9 @@ def getOverlappingEntities(canvasDataArray):
                     point = Point(i)
                     if polygon.contains(point):
                         overlapCount = overlapCount + 1
+                        break
 
-    print(overlapCount)
+    # print(overlapCount/2)
     # print(newLoc)
     # print(newLoc[0][0])
     return overlapCount
